@@ -1,0 +1,14 @@
+.login_form{
+    width: 30rem;
+    margin: auto;
+    margin-top: 10rem;
+    border: 3px solid black;
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.button_login {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
