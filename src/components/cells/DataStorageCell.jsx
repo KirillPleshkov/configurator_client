@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {Card} from "react-bootstrap";
 import axios from "axios";
+import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const RamCell = () => {
+const DataStorageCell = () => {
 
     const [dropDownElements, setDropDownElements] = useState(null)
     const [selectedElement, setSelectedElement] = useState(null)
-    const urlName = 'ram'
-    const componentName = 'Оперативная память'
+    const urlName = 'data-storage'
+    const componentName = 'Хранение данных'
 
     useEffect(() => {
 
@@ -64,4 +64,4 @@ const RamCell = () => {
     );
 };
 
-export default RamCell;
+export default DataStorageCell;

@@ -61,7 +61,7 @@ const ModalRegistration = (props) => {
     return (
         <>
             <Modal
-                {...props}
+                show={props.show}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
@@ -78,11 +78,11 @@ const ModalRegistration = (props) => {
                         </Modal.Title>
 
                         <Form>
-                            <Form.Group className="mb-3" controlId="formBasicEmail" style={{width: "90%", margin: "auto"}}>
+                            <Form.Group className="mb-3" id="formBasicEmail" style={{width: "90%", margin: "auto"}}>
                                 <div style={{height: "2rem"}}/>
                                 <Form.Floating className="mb-3">
                                     <Form.Control
-                                        id="floatingInputCustom"
+                                        id="formBasicEmail"
                                         type="email"
                                         placeholder="name@example.com"
                                         value={email}
@@ -94,15 +94,15 @@ const ModalRegistration = (props) => {
                                     />
                                     <Form.Control.Feedback type="invalid" tooltip>{emailError}</Form.Control.Feedback>
 
-                                    <label htmlFor="floatingInputCustom">Электронная почта</label>
+                                    <label htmlFor="formBasicEmail">Электронная почта</label>
                                 </Form.Floating>
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail" style={{width: "90%", margin: "auto"}}>
+                            <Form.Group className="mb-3" id="floatingPasswordCustom1" style={{width: "90%", margin: "auto"}}>
                                 <div style={{height: "1rem"}}/>
                                 <Form.Floating className="mb-3">
                                     <Form.Control
-                                        id="floatingPasswordCustom"
+                                        id="floatingPasswordCustom1"
                                         type="password"
                                         placeholder="Password"
                                         value={password1}
@@ -113,15 +113,15 @@ const ModalRegistration = (props) => {
                                         isInvalid={passwordError.length !== 0}
                                     />
 
-                                    <label htmlFor="floatingPasswordCustom">Пароль</label>
+                                    <label htmlFor="floatingPasswordCustom1">Пароль</label>
                                 </Form.Floating>
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail" style={{width: "90%", margin: "auto"}}>
+                            <Form.Group className="mb-3" id="floatingPasswordCustom2" style={{width: "90%", margin: "auto"}}>
                                 <div style={{height: "1rem"}}/>
                                 <Form.Floating className="mb-3">
                                     <Form.Control
-                                        id="floatingPasswordCustom"
+                                        id="floatingPasswordCustom2"
                                         type="password"
                                         placeholder="Password"
                                         value={password2}
@@ -133,7 +133,7 @@ const ModalRegistration = (props) => {
                                     />
                                     <Form.Control.Feedback type="invalid" tooltip>{passwordError}</Form.Control.Feedback>
 
-                                    <label htmlFor="floatingPasswordCustom">Повторите пароль</label>
+                                    <label htmlFor="floatingPasswordCustom2">Повторите пароль</label>
                                 </Form.Floating>
                             </Form.Group>
 

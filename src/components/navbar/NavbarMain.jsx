@@ -22,14 +22,22 @@ const NavbarMain = () => {
                     /> :
                     <NavbarLogin/>
             }
-            <ModalLogin
-                show={modalLoginShow}
-                setShow={setModalLoginShow}
-            />
-            <ModalRegistration
-                show={modalRegistrationShow}
-                setShow={setModalRegistrationShow}
-            />
+            {
+                (modalLoginShow === true) ?
+                    <ModalLogin
+                        show={modalLoginShow}
+                        setShow={setModalLoginShow}
+                    /> :
+                    <></>
+            }
+            {
+                (modalRegistrationShow === true) ?
+                    <ModalRegistration
+                        show={modalRegistrationShow}
+                        setShow={setModalRegistrationShow}
+                    /> :
+                    <></>
+            }
         </>
     );
 };

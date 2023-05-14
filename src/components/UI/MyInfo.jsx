@@ -14,13 +14,9 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
     useEffect(() => {
 
         const config = {
-            method: 'post',
+            method: 'get',
             maxBodyLength: Infinity,
-            url: '/'+urlName+'/get-cost',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data : {"value": element.value}
+            url: '/'+urlName+'/get-cost/' + element.id.toString(),
         };
 
         axios.request(config)
@@ -38,13 +34,9 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
     useEffect(() => {
 
         const config = {
-            method: 'post',
+            method: 'get',
             maxBodyLength: Infinity,
-            url: '/'+urlName+'/get-components',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            data : {value: element.value}
+            url: '/'+urlName+'/get-components/' + element.id.toString(),
         };
 
         axios.request(config)

@@ -5,8 +5,12 @@ const MyPriceInfo = ({content}) => {
 
     return (
         <div style={{display: "flex", width: "100%", height: "10rem"}}>
-            <div style={{borderBottom: "1px solid #818a8a"}}>
-                <img src={content.img} style={{marginTop: "50%", transform: "translate(0, -50%)", marginRight: "1rem", width: "9rem"}}/>
+            <div style={{borderBottom: "1px solid #818a8a", width: "13rem"}}>
+                <div style={{marginRight: "1rem", width: "13rem"}}>
+                    <div style={{width: "13rem", height: "10rem", display: "table-cell", verticalAlign: "middle", textAlign: "center"}}>
+                        <img src={content.img} style={{maxHeight: "9rem", maxWidth: "11rem", display: 'block', marginLeft: 'auto', marginRight: 'auto'}}/>
+                    </div>
+                </div>
             </div>
             <div style={{borderBottom: "1px solid #818a8a", borderRight: "1px solid #818a8a", borderLeft: "1px solid #818a8a", width: "100%"}}>
                 <div style={{marginLeft: "1rem"}}>

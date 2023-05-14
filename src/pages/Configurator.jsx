@@ -1,6 +1,7 @@
 import React from 'react';
 import NavbarMain from "../components/navbar/NavbarMain";
 import RamCell from "../components/cells/RamCell";
+import DataStorageCell from "../components/cells/DataStorageCell";
 
 const Configurator = () => {
     return (
@@ -8,6 +9,7 @@ const Configurator = () => {
             <NavbarMain/>
             Конфигуратор
             <RamCell/>
+            <DataStorageCell/>
         </div>
     );
 };

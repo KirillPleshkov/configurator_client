@@ -55,7 +55,7 @@ const ModalLogin = (props) => {
     return (
         <>
             <Modal
-                {...props}
+                show={props.show}
                 size="lg"
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
@@ -72,11 +72,11 @@ const ModalLogin = (props) => {
                         </Modal.Title>
 
                         <Form>
-                            <Form.Group className="mb-3" controlId="formBasicEmail" style={{width: "90%", margin: "auto"}}>
+                            <Form.Group className="mb-3" id="formBasicEmail" style={{width: "90%", margin: "auto"}}>
                                 <div style={{height: "2rem"}}/>
                                 <Form.Floating className="mb-3">
                                     <Form.Control
-                                        id="floatingInputCustom"
+                                        id="formBasicEmail"
                                         type="email"
                                         placeholder="name@example.com"
                                         value={email}
@@ -86,11 +86,11 @@ const ModalLogin = (props) => {
                                         isInvalid={error.length !== 0}
                                     />
 
-                                    <label htmlFor="floatingInputCustom">Электронная почта</label>
+                                    <label htmlFor="formBasicEmail">Электронная почта</label>
                                 </Form.Floating>
                             </Form.Group>
 
-                            <Form.Group className="mb-3" controlId="formBasicEmail" style={{width: "90%", margin: "auto"}}>
+                            <Form.Group className="mb-3" id="floatingPasswordCustom" style={{width: "90%", margin: "auto"}}>
                                 <div style={{height: "1rem"}}/>
                                 <Form.Floating className="mb-3">
                                     <Form.Control
