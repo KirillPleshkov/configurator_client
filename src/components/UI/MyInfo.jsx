@@ -14,15 +14,16 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
     useEffect(() => {
 
         const config = {
-            method: 'get',
+            method: 'post',
             maxBodyLength: Infinity,
-            url: '/'+urlName+'/get-cost/' + element.id.toString(),
+            url: '/components-info/get-minimal-price',
+            data: {url: element.url}
         };
 
         axios.request(config)
             .then((response) => {
                 console.log(response.data)
-                setPrice('Стоимость от ' + response.data.cost.toString() + 'р')
+                setPrice('Стоимость от ' + response.data.minimalPrice.toString() + 'р')
                 console.log(1111)
             })
             .catch((error) => {
@@ -34,9 +35,10 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
     useEffect(() => {
 
         const config = {
-            method: 'get',
+            method: 'post',
             maxBodyLength: Infinity,
-            url: '/'+urlName+'/get-components/' + element.id.toString(),
+            url: '/components-info/get-components-info',
+            data: {url: element.url}
         };
 
         axios.request(config)

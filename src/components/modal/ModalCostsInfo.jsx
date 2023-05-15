@@ -12,7 +12,7 @@ const ModalCostsInfo = ({currentContent, setCurrentContent}) => {
         const config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: '/price/get-price',
+            url: '/components-info/get-price-info',
             headers: {
                 'Content-Type': 'application/json'
             },
