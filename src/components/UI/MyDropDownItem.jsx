@@ -4,7 +4,7 @@ import {Dropdown} from "react-bootstrap";
 const MyDropDownItem = ({setSelectedElement, element}) => {
 
     return (
-        <Dropdown.Item onClick={() => setSelectedElement(element)}>{element.name}</Dropdown.Item>
+        <Dropdown.Item onClick={() => setSelectedElement(element)} style={(element.isBest) ? {color: "green"} : {}}>{element.name}</Dropdown.Item>
     );
 };
 

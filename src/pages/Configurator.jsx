@@ -3,6 +3,7 @@ import NavbarMain from "../components/navbar/NavbarMain";
 import RamCell from "../components/cells/RamCell";
 import DataStorageCell from "../components/cells/DataStorageCell";
 import ProcessorCoolingCell from "../components/cells/ProcessorCoolingCell";
+import PowerSupplyCell from "../components/cells/PowerSupplyCell";
 
 const Configurator = () => {
     return (
@@ -12,6 +13,7 @@ const Configurator = () => {
             <RamCell/>
             <DataStorageCell/>
             <ProcessorCoolingCell/>
+            <PowerSupplyCell/>
         </div>
     );
 };
