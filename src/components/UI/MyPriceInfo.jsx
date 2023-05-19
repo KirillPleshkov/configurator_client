@@ -12,13 +12,13 @@ const MyPriceInfo = ({content}) => {
                     </div>
                 </div>
             </div>
-            <div style={{borderBottom: "1px solid #818a8a", borderRight: "1px solid #818a8a", borderLeft: "1px solid #818a8a", width: "100%"}}>
-                <div style={{marginLeft: "1rem"}}>
-                    <a href={content.storeUrl} style={{textDecoration: "none"}}>
-                        <div style={{fontWeight: 600, fontSize: 20, color: "#599191", cursor: "pointer"}}>{content.header}</div>
+            <div style={{borderBottom: "1px solid #818a8a", borderRight: "1px solid #818a8a", borderLeft: "1px solid #818a8a", width: "27rem"}}>
+                <div style={{marginLeft: "1rem", width: "25rem"}}>
+                    <a href={content.storeUrl} style={{textDecoration: "none", height: "8rem"}}>
+                        <div style={{fontWeight: 600, fontSize: 20, color: "#599191", cursor: "pointer", wordBreak: "break-all", overflow: "hidden", height: "8rem", textOverflow: "ellipsis"}}>{content.header}</div>
                     </a>
 
-                    <div style={{color: "#696969", marginTop: "1rem"}}>{content.storeName}</div>
+                    <div style={{color: "#696969"}}>{content.storeName}</div>
                 </div>
             </div>
             <div style={{borderBottom: "1px solid #818a8a", width: "12rem"}}>

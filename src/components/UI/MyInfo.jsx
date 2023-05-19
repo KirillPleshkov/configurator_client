@@ -66,9 +66,7 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
                     <div style={{textAlign: "center", whiteSpace: "nowrap"}}>Подождите...</div>
             }
 
-            <CloseButton onClick={() => setSelectedElement(null)} style={{marginLeft: "5rem", marginTop: "3px"}}/>
-
-
+            <CloseButton onClick={() => setSelectedElement(null)} style={{marginLeft: "5rem", marginTop: "3px", flexShrink: 0}}/>
 
             {
                 (currentContent !== null) ?
