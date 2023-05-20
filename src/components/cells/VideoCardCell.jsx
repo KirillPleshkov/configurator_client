@@ -4,7 +4,7 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const VideoCardCell = ({selectedElement, setSelectedElement, performanceLevel, power}) => {
+const VideoCardCell = ({selectedElement, setSelectedElement, performanceLevel, power, setPrice, price}) => {
     const [dropDownElements, setDropDownElements] = useState(null)
     const urlName = 'video-card'
     const componentName = 'Видеокарта'
@@ -34,7 +34,7 @@ const VideoCardCell = ({selectedElement, setSelectedElement, performanceLevel, p
             <Card
                 bg={'secondary'}
                 text={'white'}
-                style={{ width: "70%" }}
+                style={{ width: "100%", minWidth: "52rem", height: "4rem"}}
                 className="mb-2"
             >
                 <Card.Body>
@@ -54,6 +54,8 @@ const VideoCardCell = ({selectedElement, setSelectedElement, performanceLevel, p
                                     setSelectedElement={setSelectedElement}
                                     urlName={urlName}
                                     componentName={componentName}
+                                    setPrice={setPrice}
+                                    price={price}
                                 />
                         }
                     </div>

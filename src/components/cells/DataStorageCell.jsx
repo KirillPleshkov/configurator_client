@@ -4,7 +4,7 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const DataStorageCell = ({selectedElement, setSelectedElement}) => {
+const DataStorageCell = ({selectedElement, setSelectedElement, setPrice, price}) => {
 
     const [dropDownElements, setDropDownElements] = useState(null)
     const urlName = 'data-storage'
@@ -34,7 +34,7 @@ const DataStorageCell = ({selectedElement, setSelectedElement}) => {
             <Card
                 bg={'secondary'}
                 text={'white'}
-                style={{ width: "70%" }}
+                style={{ width: "100%", minWidth: "52rem", height: "4rem"}}
                 className="mb-2"
             >
                 <Card.Body>
@@ -54,6 +54,8 @@ const DataStorageCell = ({selectedElement, setSelectedElement}) => {
                                     setSelectedElement={setSelectedElement}
                                     urlName={urlName}
                                     componentName={componentName}
+                                    setPrice={setPrice}
+                                    price={price}
                                 />
                         }
                     </div>

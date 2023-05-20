@@ -4,9 +4,9 @@ import axios from "axios";
 import ModalComponentInfo from "../modal/ModalComponentInfo";
 import ModalCostsInfo from "../modal/ModalCostsInfo";
 
-const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
+const MyInfo = ({element, setSelectedElement, componentName, setPrice, price}) => {
 
-    const [price, setPrice] = useState(null)
+    const [currentPrice, setCurrentPrice] = useState(null)
     const [isModalInfoShow, setIsModalInfoShow] = useState(false)
     const [currentContent, setCurrentContent] = useState(null)
     const [content, setContent] = useState(null)
@@ -23,7 +23,9 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
         axios.request(config)
             .then((response) => {
                 console.log(response.data)
-                setPrice('Стоимость от ' + response.data.minimalPrice.toString() + 'р')
+                setPrice(response.data.minimalPrice)
+                setCurrentPrice('Стоимость от ' + response.data.minimalPrice.toString() + 'р')
+
                 console.log(1111)
             })
             .catch((error) => {
@@ -58,15 +60,15 @@ const MyInfo = ({element, setSelectedElement, urlName, componentName}) => {
             <div style={{fontSize: 18, marginLeft: "3rem", whiteSpace: "nowrap", marginTop: "2px"}}>{element.name}</div>
             <div style={{width: "80%"}}/>
             {
-                (price !== null) ?
+                (currentPrice !== null) ?
                     <div style={{marginTop: "-5px"}}>
-                        <div style={{textAlign: "center", whiteSpace: "nowrap"}}>{price}</div>
+                        <div style={{textAlign: "center", whiteSpace: "nowrap"}}>{currentPrice}</div>
                         <div onClick={() => setIsModalInfoShow(true)} style={{fontSize: 12, margin: "auto", textAlign: "center", cursor: "pointer", textDecoration: "underline"}}>Подробнее</div>
                     </div> :
                     <div style={{textAlign: "center", whiteSpace: "nowrap"}}>Подождите...</div>
             }
 
-            <CloseButton onClick={() => setSelectedElement(null)} style={{marginLeft: "5rem", marginTop: "3px", flexShrink: 0}}/>
+            <CloseButton onClick={() => {setSelectedElement(null); setPrice(0)}} style={{marginLeft: "5rem", marginTop: "3px", flexShrink: 0}}/>
 
             {
                 (currentContent !== null) ?

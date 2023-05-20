@@ -4,7 +4,7 @@ import axios from "axios";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const RamCell = ({selectedElement, setSelectedElement}) => {
+const RamCell = ({selectedElement, setSelectedElement, setPrice, price}) => {
 
     const [dropDownElements, setDropDownElements] = useState(null)
     const urlName = 'ram'
@@ -34,7 +34,7 @@ const RamCell = ({selectedElement, setSelectedElement}) => {
             <Card
                 bg={'secondary'}
                 text={'white'}
-                style={{ width: "70%" }}
+                style={{ width: "100%", minWidth: "52rem", height: "4rem"}}
                 className="mb-2"
             >
                 <Card.Body>
@@ -54,6 +54,8 @@ const RamCell = ({selectedElement, setSelectedElement}) => {
                                     setSelectedElement={setSelectedElement}
                                     urlName={urlName}
                                     componentName={componentName}
+                                    setPrice={setPrice}
+                                    price={price}
                                 />
                         }
                     </div>
