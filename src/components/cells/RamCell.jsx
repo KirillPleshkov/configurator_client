@@ -4,10 +4,9 @@ import axios from "axios";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const RamCell = () => {
+const RamCell = ({selectedElement, setSelectedElement}) => {
 
     const [dropDownElements, setDropDownElements] = useState(null)
-    const [selectedElement, setSelectedElement] = useState(null)
     const urlName = 'ram'
     const componentName = 'Оперативная память'
 

@@ -4,9 +4,9 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const MotherboardCell = () => {
+const MotherboardCell = ({selectedElement, setSelectedElement, socketId}) => {
     const [dropDownElements, setDropDownElements] = useState(null)
-    const [selectedElement, setSelectedElement] = useState(null)
+
     const urlName = 'motherboard'
     const componentName = 'Материнская плата'
 
@@ -16,7 +16,7 @@ const MotherboardCell = () => {
             method: 'post',
             maxBodyLength: Infinity,
             url: '/'+urlName+'/all-characteristics',
-            data: {socketId: null}
+            data: {socketId}
         }
 
         axios.request(config)
@@ -28,7 +28,7 @@ const MotherboardCell = () => {
                 console.log(error)
             })
 
-    }, [])
+    }, [socketId])
 
     return (
         <div>

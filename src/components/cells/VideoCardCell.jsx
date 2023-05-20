@@ -4,9 +4,8 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const VideoCardCell = () => {
+const VideoCardCell = ({selectedElement, setSelectedElement, performanceLevel, power}) => {
     const [dropDownElements, setDropDownElements] = useState(null)
-    const [selectedElement, setSelectedElement] = useState(null)
     const urlName = 'video-card'
     const componentName = 'Видеокарта'
 
@@ -16,7 +15,7 @@ const VideoCardCell = () => {
             method: 'post',
             maxBodyLength: Infinity,
             url: '/'+urlName+'/all-characteristics',
-            data: {power: 450}
+            data: {performanceLevel, power}
         }
 
         axios.request(config)
@@ -28,7 +27,7 @@ const VideoCardCell = () => {
                 console.log(error)
             })
 
-    }, [])
+    }, [performanceLevel, power])
 
     return (
         <div>

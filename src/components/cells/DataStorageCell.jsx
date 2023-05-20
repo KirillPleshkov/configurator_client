@@ -4,10 +4,9 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const DataStorageCell = () => {
+const DataStorageCell = ({selectedElement, setSelectedElement}) => {
 
     const [dropDownElements, setDropDownElements] = useState(null)
-    const [selectedElement, setSelectedElement] = useState(null)
     const urlName = 'data-storage'
     const componentName = 'Хранение данных'
 

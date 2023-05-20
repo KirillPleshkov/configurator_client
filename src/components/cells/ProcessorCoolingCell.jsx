@@ -4,9 +4,8 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const ProcessorCoolingCell = () => {
+const ProcessorCoolingCell = ({selectedElement, setSelectedElement}) => {
     const [dropDownElements, setDropDownElements] = useState(null)
-    const [selectedElement, setSelectedElement] = useState(null)
     const urlName = 'processor-cooling'
     const componentName = 'Охлаждение процессора'
 

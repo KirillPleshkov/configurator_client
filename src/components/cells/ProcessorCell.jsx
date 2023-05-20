@@ -4,10 +4,11 @@ import {Card} from "react-bootstrap";
 import MyDropDown from "../UI/MyDropDown";
 import MyInfo from "../UI/MyInfo";
 
-const PowerSupplyCell = ({selectedElement, setSelectedElement, power}) => {
+const ProcessorCell = ({selectedElement, setSelectedElement, socketId, performanceLevel}) => {
+
     const [dropDownElements, setDropDownElements] = useState(null)
-    const urlName = 'power-supply'
-    const componentName = 'Блок питания'
+    const urlName = 'processor'
+    const componentName = 'Процессор'
 
     useEffect(() => {
 
@@ -15,7 +16,7 @@ const PowerSupplyCell = ({selectedElement, setSelectedElement, power}) => {
             method: 'post',
             maxBodyLength: Infinity,
             url: '/'+urlName+'/all-characteristics',
-            data: {power}
+            data: {socketId, performanceLevel}
         }
 
         axios.request(config)
@@ -27,7 +28,7 @@ const PowerSupplyCell = ({selectedElement, setSelectedElement, power}) => {
                 console.log(error)
             })
 
-    }, [power])
+    }, [socketId, performanceLevel])
 
     return (
         <div>
@@ -63,4 +64,4 @@ const PowerSupplyCell = ({selectedElement, setSelectedElement, power}) => {
     );
 };
 
-export default PowerSupplyCell;
+export default ProcessorCell;
