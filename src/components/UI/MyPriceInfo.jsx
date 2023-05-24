@@ -14,7 +14,7 @@ const MyPriceInfo = ({content}) => {
             </div>
             <div style={{borderBottom: "1px solid #818a8a", borderRight: "1px solid #818a8a", borderLeft: "1px solid #818a8a", width: "27rem"}}>
                 <div style={{marginLeft: "1rem", width: "25rem"}}>
-                    <a href={content.storeUrl} style={{textDecoration: "none", height: "8rem"}}>
+                    <a href={content.storeUrl} target="_blank" style={{textDecoration: "none", height: "8rem"}}>
                         <div style={{fontWeight: 600, fontSize: 20, color: "#599191", cursor: "pointer", wordBreak: "break-all", overflow: "hidden", height: "8rem", textOverflow: "ellipsis"}}>{content.header}</div>
                     </a>
 
@@ -22,10 +22,10 @@ const MyPriceInfo = ({content}) => {
                 </div>
             </div>
             <div style={{borderBottom: "1px solid #818a8a", width: "12rem"}}>
-                <a href={content.storeUrl} style={{textDecoration: "none"}}>
+                <a href={content.storeUrl} target="_blank" style={{textDecoration: "none"}}>
                     <div style={{textAlign: "center", color: "#87abab", marginTop: "1rem", cursor: "pointer"}}>Цена: {content.price}</div>
                 </a>
-                <a href={content.storeUrl} style={{textDecoration: "none"}}>
+                <a href={content.storeUrl} target="_blank" style={{textDecoration: "none"}}>
                     <img src={content.imgStore} style={{marginLeft: "1rem", width: "7rem", marginTop: "1rem", cursor: "pointer"}}/>
                 </a>
             </div>

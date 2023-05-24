@@ -39,10 +39,24 @@ const ModalRegistration = (props) => {
             })
             .catch((error) => {
                 const err = error.response.data.error
-                if(err.email)
-                    setEmailError(err.email)
-                if(err.password)
-                    setPasswordError(err.password)
+
+                if(err !== undefined) {
+                    if(err.email)
+                        setEmailError(err.email)
+                    if(err.password)
+                        setPasswordError(err.password)
+                }
+                else {
+                    error.response.data.map((errText) => {
+                        if(errText.split(':')[0] === 'email')
+                            setEmailError(errText.split(':')[1])
+                        if(errText.split(':')[0] === 'password1')
+                            setPasswordError(errText.split(':')[1])
+                    })
+                }
+
+                console.log(error.response.data)
+
             });
 
     }

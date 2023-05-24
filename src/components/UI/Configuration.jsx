@@ -8,9 +8,14 @@ import RamCell from "../cells/RamCell";
 import DataStorageCell from "../cells/DataStorageCell";
 import ProcessorCoolingCell from "../cells/ProcessorCoolingCell";
 import {Button} from "react-bootstrap";
+import {useCookies} from "react-cookie";
+import axios from "axios";
+import ModalLogin from "../modal/ModalLogin";
+import ModalSaveAssembly from "../modal/ModalSaveAssembly";
+import DisabledButton from "./DisabledButton";
 
 const Configuration = () => {
-
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
     const [processorElement, setProcessorElement] = useState(null)
     const [motherboardElement, setMotherboardElement] = useState(null)
@@ -34,12 +39,30 @@ const Configuration = () => {
 
     const [price, setPrice] = useState(0)
 
+    const [modalLoginShow, setModalLoginShow] = useState(false)
+    const [modalSaveAssemblyShow, setModalSaveAssemblyShow] = useState(false)
+
+    const [isCompleted, setIsCompleted] = useState(false)
+    const [dataToSave, setDataToSave] = useState(null)
+
     useEffect(() => {
 
         const price = processorPrice + motherboardPrice + videoCardPrice +
             powerSupplyPrice + ramPrice + dataStoragePrice + processorCoolingPrice
 
         setPrice(price)
+
+        if(processorPrice !== 0 && motherboardPrice !== 0 &&
+            videoCardPrice !== 0 && powerSupplyPrice !== 0 &&
+            ramPrice !== 0 && dataStoragePrice !== 0 &&
+            processorCoolingPrice !== 0) {
+
+            setIsCompleted(true)
+        }
+        else {
+            setIsCompleted(false)
+        }
+
     }, [processorPrice, motherboardPrice, videoCardPrice, powerSupplyPrice, ramPrice, dataStoragePrice, processorCoolingPrice])
 
 
@@ -76,6 +99,30 @@ const Configuration = () => {
 
     }, [videoCardElement, powerSupplyElement])
 
+
+    const AddAssembly = () => {
+
+        if(cookies.token === undefined) {
+            setModalLoginShow(true)
+        }
+        else {
+
+            const data = {
+                name: "",
+                ramId: ramElement.id,
+                powerSupplyId: powerSupplyElement.id,
+                motherboardId: motherboardElement.id,
+                processorId: processorElement.id,
+                videoCardId: videoCardElement.id,
+                dataStorageId: dataStorageElement.id,
+                processorCoolingId: processorCoolingElement.id
+            }
+
+            setDataToSave(data)
+            setModalSaveAssemblyShow(true)
+        }
+
+    }
 
     return (
         <div style={{width: "100%"}}>
@@ -142,10 +189,30 @@ const Configuration = () => {
                     <div style={{width: "100%", fontSize: 24, fontWeight: 500}}>
                         Стоимость данной конфигурации: от {price}р
                     </div>
-                    <Button variant="success">Сохранить сборку</Button>
+                    {
+                        isCompleted ?
+                            <Button variant="success" onClick={AddAssembly}>Сохранить сборку</Button> :
+                            <DisabledButton/>
+                    }
                 </div>
             </div>
-
+            {
+                (modalLoginShow === true) ?
+                    <ModalLogin
+                        show={modalLoginShow}
+                        setShow={setModalLoginShow}
+                    /> :
+                    <></>
+            }
+            {
+                (modalSaveAssemblyShow === true) ?
+                    <ModalSaveAssembly
+                        show={modalSaveAssemblyShow}
+                        setShow={setModalSaveAssemblyShow}
+                        data={dataToSave}
+                    /> :
+                    <></>
+            }
         </div>
     );
 };

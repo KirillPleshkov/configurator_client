@@ -36,6 +36,9 @@ const NavbarLogin = () => {
                             <LinkContainer to="/configurator">
                                 <Nav.Link >Конфигуратор</Nav.Link>
                             </LinkContainer>
+                            <LinkContainer to="/my/assembly">
+                                <Nav.Link >Мои сборки</Nav.Link>
+                            </LinkContainer>
                         </Nav>
                         <Nav>
                             <NavDropdown title={email} id="basic-nav-dropdown">

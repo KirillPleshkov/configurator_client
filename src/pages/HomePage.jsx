@@ -5,7 +5,7 @@ const HomePage = () => {
     return (
         <div>
             <NavbarMain/>
-            <div>Home</div>
+            <div style={{width: "100%", textAlign: "center", marginTop: "2rem", fontSize: 30, fontWeight: 700}}>Здесь должно быть что то красивое но я не придумал что</div>
         </div>
     );
 };

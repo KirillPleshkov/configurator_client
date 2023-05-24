@@ -12,3 +12,15 @@
     left: 50%;
     transform: translate(-50%, 0);
 }
+
+.assembly_info {
+    display: flex;
+    width: 50rem;
+    height: 4rem;
+    border-bottom: 1px solid #818a8a
+}
+
+.assembly_info:hover {
+    background-color: #d4dcdc;
+    cursor: pointer;
+}
